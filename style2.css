@@ -169,4 +169,36 @@ footer {
     .cards-section, .skills-section {
         grid-template-columns: 1fr;
     }
+    /* Animaciones de fade-in al scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Botón volver dinámico */
+#backToTop {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: #fff;
+    border-radius: 50px;
+    display: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+#backToTop:hover {
+    transform: translateY(-3px);
+}
+
 }
