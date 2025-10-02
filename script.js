@@ -1,27 +1,24 @@
-// Fade-in al hacer scroll
+// FADE-IN AL HACER SCROLL
 const faders = document.querySelectorAll('.fade-in');
 
 const appearOptions = {
-  threshold: 0.2,
-  rootMargin: "0px 0px -50px 0px"
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
 };
 
-const appearOnScroll = new IntersectionObserver(function(
-  entries, 
-  appearOnScroll
-) {
-  entries.forEach(entry => {
-    if(!entry.isIntersecting) return;
-    entry.target.classList.add('show');
-    appearOnScroll.unobserve(entry.target);
-  });
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+    });
 }, appearOptions);
 
 faders.forEach(fader => {
-  appearOnScroll.observe(fader);
+    appearOnScroll.observe(fader);
 });
 
-// Botón Back to Top
+// BOTÓN BACK TO TOP DINÁMICO
 const backToTop = document.createElement('div');
 backToTop.id = 'backToTop';
 backToTop.textContent = '↑';
